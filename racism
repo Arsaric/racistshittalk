@@ -1,0 +1,44 @@
+--Load Notification
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Racism";
+    Text = "🔻 Loaded into Roblox 🔺";
+    Duration = "5";
+    })
+--Keybinds Notification
+game.StarterGui:SetCore("SendNotification", {
+        Title = "Keybinds";
+    Text = "🔺 Press Y To Be Racist 🔻";
+    Duration = "5";
+    })
+--Credits Notification
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Credits";
+    Text = "🔻 Paci (dc copied to clipboard) 🔺";
+    Duration = "5";
+    })
+
+setclipboard("paci#5673")
+
+--Customizable words
+local words = {
+    'swing from the tree',
+    'george floyd',
+    'ur black',
+    'the cops aim better',
+    'tree hopper',
+    'bananna eater',
+    'ashy skin',
+    'negro',
+    'black',
+}
+
+local player = game.Players.LocalPlayer
+local keybind = 'm'
+
+local event = game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest
+
+player:GetMouse().KeyDown:connect(function(key)
+    if key == keybind then
+        event:FireServer(words[math.random(#words)], "All")
+    end
+end)
